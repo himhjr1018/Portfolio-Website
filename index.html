@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Himanshu Rao | Data &amp; AI Professional</title>
+<meta name="description" content="Himanshu Rao: data and AI professional with 5+ years across banking, insurance and analytics. Data quality, anomaly detection and automated pipelines in Python, SQL, PySpark and Dataiku.">
+<meta name="theme-color" content="#05060d">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05060d; --bg2:#0a0c18; --panel:rgba(255,255,255,.04); --panel-b:rgba(255,255,255,.09);
+  --text:#e7eaf6; --muted:#8b93b0; --cyan:#22d3ee; --violet:#8b5cf6; --pink:#f472b6; --lime:#a3e635;
+  --grad:linear-gradient(120deg,var(--cyan),var(--violet) 55%,var(--pink));
+  --mono:"JetBrains Mono",ui-monospace,monospace; --sans:"Space Grotesk",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--violet);color:#fff}
+.wrap{width:min(1160px,100% - 40px);margin:0 auto}
+
+/* background layers */
+#net{position:fixed;inset:0;z-index:0;pointer-events:none}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 15% 10%,rgba(139,92,246,.22),transparent 60%),
+             radial-gradient(50% 45% at 90% 20%,rgba(34,211,238,.16),transparent 60%),
+             radial-gradient(55% 50% at 60% 100%,rgba(244,114,182,.12),transparent 60%)}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%)}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:1;left:0;top:0;
+  background:radial-gradient(circle,rgba(139,92,246,.16),transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s}
+main,header,footer{position:relative;z-index:2}
+
+/* nav */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(920px,100% - 28px);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 20px;
+  background:rgba(10,12,24,.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--panel-b);border-radius:999px;box-shadow:0 10px 40px -10px rgba(0,0,0,.6)}
+.logo{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.02em}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:4px;list-style:none}
+.links a{display:block;padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);transition:.25s}
+.links a:hover,.links a.on{color:#fff;background:rgba(255,255,255,.07)}
+.nav-cta{padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;color:#05060d;background:var(--grad);white-space:nowrap}
+.burger{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
+@media(max-width:860px){
+  .links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;padding:10px;background:rgba(10,12,24,.96);
+    border:1px solid var(--panel-b);border-radius:20px;display:none}
+  .links.open{display:flex}.burger{display:block}.nav-cta{display:none}
+}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--cyan);
+  padding:7px 14px;border:1px solid rgba(34,211,238,.3);border-radius:999px;background:rgba(34,211,238,.06);margin-bottom:26px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(163,230,53,.7);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(163,230,53,0)}100%{box-shadow:0 0 0 0 rgba(163,230,53,0)}}
+h1{font-size:clamp(46px,8vw,96px);line-height:1;letter-spacing:-.04em;font-weight:700}
+h1 .grad{background:var(--grad);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s ease infinite}
+@keyframes flow{50%{background-position:100% 50%}}
+.role{font-family:var(--mono);font-size:clamp(15px,2vw,20px);margin:22px 0 18px;color:var(--text);min-height:1.6em}
+.role .caret{display:inline-block;width:9px;height:1.1em;background:var(--cyan);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{color:var(--muted);font-size:clamp(16px,1.6vw,18.5px);max-width:560px}
+.lede b{color:var(--text);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:14px;font-weight:600;font-size:15px;transition:.3s;cursor:pointer;border:0;font-family:var(--sans)}
+.btn.primary{color:#05060d;background:var(--grad);box-shadow:0 12px 36px -10px rgba(139,92,246,.7)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px -10px rgba(34,211,238,.6)}
+.btn.ghost{color:var(--text);border:1px solid var(--panel-b);background:var(--panel)}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+.socials{display:flex;gap:12px;margin-top:34px}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--panel-b);background:var(--panel);transition:.3s;color:var(--muted)}
+.socials a:hover{color:#fff;border-color:var(--violet);background:rgba(139,92,246,.18);transform:translateY(-3px)}
+.socials svg{width:19px;height:19px;fill:currentColor}
+
+/* orbit portrait */
+.orbit{position:relative;width:min(440px,100%);aspect-ratio:1;margin:0 auto}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(255,255,255,.14);animation:spin 40s linear infinite}
+.orbit .ring.r2{inset:11%;border-style:solid;border-color:rgba(139,92,246,.25);animation-duration:55s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit .core{position:absolute;inset:19%;border-radius:50%;padding:5px;
+  background:conic-gradient(from 0deg,var(--cyan),var(--violet),var(--pink),var(--cyan));animation:spin 9s linear infinite;
+  box-shadow:0 0 70px -10px rgba(139,92,246,.6)}
+.orbit .core div{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--bg);animation:spin 9s linear infinite reverse}
+.orbit .core img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.chip{position:absolute;left:50%;top:50%;margin:-20px 0 0 -46px;width:92px;height:40px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:12px;font-weight:500;border-radius:12px;background:rgba(10,12,24,.85);
+  border:1px solid var(--panel-b);backdrop-filter:blur(8px);box-shadow:0 8px 24px -8px rgba(0,0,0,.7)}
+.orbit .spin{position:absolute;inset:0;animation:spin 32s linear infinite}
+.orbit .spin .chip{animation:spin 32s linear infinite reverse}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}.orbit{width:min(340px,100%);order:-1}}
+
+/* scroll cue */
+.cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:8px}
+.cue span{width:1px;height:38px;background:linear-gradient(var(--cyan),transparent);animation:drop 2s ease infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px),(max-height:700px){.cue{display:none}}
+
+/* marquee */
+.marq{border-block:1px solid var(--panel-b);background:rgba(255,255,255,.02);overflow:hidden;padding:18px 0}
+.marq div{display:flex;gap:48px;width:max-content;animation:scroll 38s linear infinite;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.marq span{display:flex;align-items:center;gap:48px;white-space:nowrap}
+.marq span::after{content:"◆";color:var(--violet);font-size:10px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:110px 0;position:relative}
+.eyebrow{font-family:var(--mono);font-size:13px;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--cyan)}
+h2{font-size:clamp(32px,5vw,56px);letter-spacing:-.03em;line-height:1.08;font-weight:700;margin-bottom:18px}
+.sub{color:var(--muted);max-width:620px;font-size:17px}
+.head{margin-bottom:56px}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.card{background:var(--panel);border:1px solid var(--panel-b);border-radius:22px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(139,92,246,.7),transparent 45%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.term{font-family:var(--mono);font-size:13.5px}
+.term .bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--panel-b);background:rgba(255,255,255,.02)}
+.term .bar i{width:11px;height:11px;border-radius:50%}
+.term .bar i:nth-child(1){background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+.term .bar em{margin-left:10px;color:var(--muted);font-style:normal;font-size:12px}
+.term pre{padding:22px 22px 26px;overflow-x:auto;line-height:1.85;color:#c9d1ee;min-height:330px;white-space:pre}
+.k{color:#c792ea}.f{color:#82aaff}.s{color:#c3e88d}.c{color:#6b7394}.n{color:#f78c6c}
+.about-text p{color:var(--muted);font-size:17px;margin-bottom:22px}
+.about-text p b{color:var(--text);font-weight:600}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.fact{padding:16px 18px;border-radius:16px;border:1px solid var(--panel-b);background:var(--panel)}
+.fact small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.fact span{font-size:15px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:70px}
+.metric{padding:30px 24px}
+.metric strong{display:block;font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-.04em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
+.metric span{color:var(--muted);font-size:14.5px;line-height:1.5;display:block}
+@media(max-width:900px){.metrics{grid-template-columns:1fr 1fr}}
+
+/* timeline */
+.tl{position:relative;padding-left:38px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cyan),var(--violet),var(--pink),transparent)}
+.job{position:relative;padding:30px 32px;margin-bottom:26px}
+.job::after{content:"";position:absolute;left:-38px;top:36px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.job.now::after{background:var(--cyan)}
+.job header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;margin-bottom:16px;align-items:flex-start}
+.job h3{font-size:22px;letter-spacing:-.01em;line-height:1.3}
+.job .co{color:var(--cyan);font-family:var(--mono);font-size:14px;margin-top:4px}
+.job .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding:6px 14px;border:1px solid var(--panel-b);border-radius:999px;white-space:nowrap}
+.job ul{list-style:none;display:grid;gap:11px}
+.job li{position:relative;padding-left:24px;color:#aab1cc;font-size:15.5px}
+.job li::before{content:"›";position:absolute;left:4px;color:var(--violet);font-weight:700}
+@media(max-width:600px){.tl{padding-left:26px}.job{padding:22px 20px}.job::after{left:-26px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill{padding:28px}
+.skill h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.tags span{font-size:13.5px;padding:7px 13px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--panel-b);transition:.25s;cursor:default}
+.tags span:hover{border-color:var(--violet);color:#fff;background:rgba(139,92,246,.2);transform:translateY(-2px)}
+@media(max-width:960px){.skills{grid-template-columns:1fr 1fr}}@media(max-width:620px){.skills{grid-template-columns:1fr}}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{display:flex;flex-direction:column;transition:transform .2s ease-out;transform-style:preserve-3d;will-change:transform}
+.proj .shot{aspect-ratio:16/10;overflow:hidden;background:#0d1020;position:relative}
+.proj .shot img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.proj:hover .shot img{transform:scale(1.07)}
+.proj .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(5,6,13,.85))}
+.proj .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet)}
+.proj h3{font-size:20px;letter-spacing:-.01em}
+.proj p{color:var(--muted);font-size:14.5px;flex:1}
+.proj .go{display:flex;gap:16px;font-family:var(--mono);font-size:13px;margin-top:6px}
+.proj .go a{color:var(--cyan);display:inline-flex;align-items:center;gap:6px;transition:.25s}
+.proj .go a:hover{color:#fff;gap:10px}
+@media(max-width:960px){.projects{grid-template-columns:1fr 1fr}}@media(max-width:620px){.projects{grid-template-columns:1fr}}
+
+/* reading */
+.reads{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.read{padding:26px;display:flex;flex-direction:column;gap:12px;transition:transform .3s}
+.read:hover{transform:translateY(-6px)}
+.read .tag{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(34,211,238,.3);padding:4px 11px;border-radius:999px}
+.read h3{font-size:18px;line-height:1.4;letter-spacing:-.01em}
+.read p{color:var(--muted);font-size:14.5px;flex:1}
+.read .src{font-family:var(--mono);font-size:12.5px;color:#aab1cc;display:flex;justify-content:space-between;gap:10px;margin-top:4px}
+@media(max-width:960px){.reads{grid-template-columns:1fr 1fr}}@media(max-width:620px){.reads{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}
+.cinfo{padding:34px;display:flex;flex-direction:column;gap:24px}
+.cinfo h3{font-size:26px;letter-spacing:-.02em;line-height:1.25}
+.crow{display:flex;gap:16px;align-items:center}
+.crow i{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.3);color:var(--violet);font-style:normal;font-size:19px}
+.crow small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.crow a:hover{color:var(--cyan)}
+form{padding:34px;display:grid;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+input,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--panel-b);background:rgba(255,255,255,.04);color:var(--text);font:inherit;font-size:15px;transition:.25s}
+input:focus,textarea:focus{outline:0;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.12);background:rgba(255,255,255,.06)}
+textarea{min-height:140px;resize:vertical}
+#fstatus{font-family:var(--mono);font-size:13px;min-height:1.4em}
+@media(max-width:900px){.contact{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+footer{padding:44px 0 60px;border-top:1px solid var(--panel-b);text-align:center;color:var(--muted);font-family:var(--mono);font-size:13px}
+footer a{color:var(--cyan)}
+
+.top{position:fixed;right:22px;bottom:22px;z-index:40;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--panel-b);
+  background:rgba(10,12,24,.8);backdrop-filter:blur(10px);color:#fff;opacity:0;pointer-events:none;transition:.3s;cursor:pointer}
+.top.show{opacity:1;pointer-events:auto}.top:hover{border-color:var(--cyan);color:var(--cyan)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<div id="glow" aria-hidden="true"></div>
+
+<nav>
+  <a href="#top" class="logo">&lt;<b>HR</b>/&gt;</a>
+  <ul class="links" id="links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reading">Reading</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="assets/Himanshu-Rao-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="status"><i></i> Open to new opportunities</div>
+      <h1>Himanshu<br><span class="grad">Rao</span></h1>
+      <p class="role"><span id="typed"></span><span class="caret"></span></p>
+      <p class="lede">Data and AI professional with <b>5+ years</b> across banking, insurance and analytics. I build data validation frameworks, ML-based anomaly detection and automated pipelines that deliver <b>trustworthy, audit-ready data</b> for risk, compliance and AI.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Let’s talk →</a>
+        <a class="btn ghost" href="assets/Himanshu-Rao-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/himanshu-rao-/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://github.com/himhjr1018" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+        <a href="mailto:himanshurao8999@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.8 6 7.8-6H4.2zM20 8l-8 6.2L4 8v10.5h16V8z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="orbit" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="spin" id="spin"></div>
+      <div class="core"><div><img src="assets/img/me.jpg" alt="Himanshu Rao"></div></div>
+    </div>
+  </div>
+  <div class="cue">SCROLL<span></span></div>
+</header>
+
+<div class="marq" aria-hidden="true"><div id="marq"></div></div>
+
+<main>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">01 / About</div>
+      <h2>Turning messy data into<br>decisions you can trust.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="card term reveal">
+        <div class="bar"><i></i><i></i><i></i><em>assess_data_source.py</em></div>
+<pre id="code"></pre>
+      </div>
+
+      <div class="about-text reveal">
+        <p>I currently lead <b>AML data assessments at RBC</b>, evaluating transaction monitoring, KYC and customer data for completeness, accuracy, timeliness and lineage against regulatory expectations.</p>
+        <p>I combine <b>hands-on engineering</b> in Python, SQL, PySpark and Dataiku with <b>stakeholder leadership</b>, partnering with compliance, technology and model risk teams to turn technical findings into clear risk ratings and actions.</p>
+        <div class="facts">
+          <div class="fact"><small>Location</small><span>Toronto, Canada</span></div>
+          <div class="fact"><small>Education</small><span>M.Applied Computing, Windsor</span></div>
+          <div class="fact"><small>Email</small><span><a href="mailto:himanshurao8999@gmail.com">himanshurao8999@gmail.com</a></span></div>
+          <div class="fact"><small>Phone</small><span>+1 (437) 988-9899</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="card metric reveal"><strong data-to="5" data-suf="+">0</strong><span>Years across banking, insurance &amp; analytics</span></div>
+      <div class="card metric reveal"><strong data-to="55" data-suf="%">0</strong><span>Faster AML assessment turnaround via automated controls</span></div>
+      <div class="card metric reveal"><strong data-to="40" data-suf="">0</strong><span>Critical data issues prioritized and tracked to closure</span></div>
+      <div class="card metric reveal"><strong data-to="15" data-suf="%">0</strong><span>Better early risk-flagging accuracy on claims data</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">02 / Experience</div>
+      <h2>Where I’ve shipped.</h2>
+      <p class="sub">From analytics teams to AML data governance at one of Canada’s largest banks.</p>
+    </div>
+
+    <div class="tl">
+      <article class="card job now reveal">
+        <header><div><h3>Manager, AML Data Assessments</h3><div class="co">RBC (Royal Bank of Canada) · Toronto, ON</div></div><span class="when">Nov 2025 – Present</span></header>
+        <ul>
+          <li>Lead end-to-end data assessments of AML data sources (transaction monitoring, KYC and customer data), evaluating completeness, accuracy, timeliness and lineage against regulatory expectations.</li>
+          <li>Design and automate data quality controls in Python and SQL, replacing manual checks and cutting assessment turnaround by 55%.</li>
+          <li>Apply statistical and ML-based anomaly detection to surface data gaps and unusual patterns feeding AML monitoring models.</li>
+          <li>Partner with AML compliance, technology and model risk teams to prioritize remediation of 40 critical data issues and track them to closure.</li>
+          <li>Produce assessment reports and dashboards for senior stakeholders and audit, translating technical findings into clear risk ratings and actions.</li>
+        </ul>
+      </article>
+
+      <article class="card job reveal">
+        <header><div><h3>Data Science &amp; Analytics Consultant</h3><div class="co">Outlier.ai · Remote, Canada</div></div><span class="when">May 2024 – Oct 2025</span></header>
+        <ul>
+          <li>Built automated data pipelines ingesting third-party API data into centralized SQL databases with secure, reliable transfer.</li>
+          <li>Created a reusable validation and logging layer that recorded schema checks, row-level anomalies and results for audit review.</li>
+          <li>Ran User Acceptance Testing with business and IT teams, writing test cases to confirm new features met reporting and compliance requirements.</li>
+          <li>Analyzed gaps in reporting processes and recommended automation that reduced manual reviews and improved risk monitoring for the actuarial team.</li>
+          <li>Built Excel templates with formulas and VBA macros so non-technical staff could generate accurate performance summaries.</li>
+        </ul>
+      </article>
+
+      <article class="card job reveal">
+        <header><div><h3>Financial Data Analyst (Co-op)</h3><div class="co">RBC Insurance · Mississauga, ON</div></div><span class="when">Sep 2023 – Apr 2024</span></header>
+        <ul>
+          <li>Built Python anomaly detection models for insurance claims data, improving early risk-flagging accuracy by 15%.</li>
+          <li>Developed a Dataiku validation framework that automatically checks column names, data types and row integrity for financial and insurance reporting.</li>
+          <li>Wrote SQL to merge policy, claims and premium data across systems, enabling deeper analysis of risk exposure and claim trends.</li>
+          <li>Published Tableau dashboards of actuarial results for monthly reviews, improving KPI communication across actuarial and finance teams.</li>
+          <li>Automated financial statement reconciliation with Excel VBA, reducing manual work and speeding up reporting.</li>
+        </ul>
+      </article>
+
+      <article class="card job reveal">
+        <header><div><h3>Data Analyst</h3><div class="co">Pumpumpum · Gurugram, India</div></div><span class="when">Jan 2021 – Aug 2023</span></header>
+        <ul>
+          <li>Optimized SQL queries across MySQL, SQL Server and Oracle, improving reporting performance by 30% and streamlining ETL.</li>
+          <li>Built data lake solutions to land unstructured event-log and survey data, enabling structured transformation and compliance reporting.</li>
+          <li>Analyzed time-series and structured datasets with Pandas and NumPy to produce feature-rich internal performance reports.</li>
+          <li>Documented KPI definitions, validation logic and pipeline structures in Confluence, speeding up onboarding of new team members.</li>
+          <li>Managed Agile sprints in JIRA, helping the team deliver multiple reporting projects on time.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">03 / Toolkit</div>
+      <h2>The stack I work in.</h2>
+    </div>
+    <div class="skills">
+      <div class="card skill reveal"><h3>Languages &amp; Querying</h3><div class="tags"><span>Python</span><span>SQL (SQL Server, MySQL, Oracle)</span><span>PySpark</span><span>SparkSQL</span><span>VBA</span><span>JavaScript</span></div></div>
+      <div class="card skill reveal"><h3>Machine Learning &amp; AI</h3><div class="tags"><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span></div></div>
+      <div class="card skill reveal"><h3>Data Engineering</h3><div class="tags"><span>ETL pipelines</span><span>API ingestion</span><span>Kafka</span><span>Hadoop</span><span>Hive</span><span>Snowflake</span><span>MongoDB</span></div></div>
+      <div class="card skill reveal"><h3>Cloud &amp; DevOps</h3><div class="tags"><span>AWS</span><span>Docker</span><span>Jenkins</span><span>GitHub</span></div></div>
+      <div class="card skill reveal"><h3>Analytics &amp; BI</h3><div class="tags"><span>Tableau</span><span>Dataiku</span><span>Excel (advanced, VBA)</span></div></div>
+      <div class="card skill reveal"><h3>Collaboration</h3><div class="tags"><span>JIRA</span><span>Confluence</span><span>Agile / Scrum</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">04 / Projects</div>
+      <h2>Things I’ve built.</h2>
+      <p class="sub">Machine learning models and web apps. Source code on GitHub.</p>
+    </div>
+    <div class="projects">
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/mortgage.webp" alt="Mortgage funding prediction" loading="lazy"></div><div class="body"><span class="tag">Machine Learning</span><h3>Mortgage Funding Prediction</h3><p>A predictive model for mortgage funding outcomes.</p><div class="go"><a href="https://github.com/himhjr1018/Mortgage-Funding-Prediction" target="_blank" rel="noopener">View code ↗</a></div></div></article>
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/carprice.jpeg" alt="Car price prediction model" loading="lazy"></div><div class="body"><span class="tag">Machine Learning</span><h3>Car Price Prediction Model</h3><p>A machine learning model that predicts used-car prices.</p><div class="go"><a href="https://github.com/himhjr1018/Car-Price-Prediction-Model" target="_blank" rel="noopener">View code ↗</a></div></div></article>
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/uniconnect.png" alt="UniConnect platform" loading="lazy"></div><div class="body"><span class="tag">Full-stack Web App</span><h3>UniConnect Platform</h3><p>A full-stack web platform with separate frontend and backend repositories.</p><div class="go"><a href="https://github.com/himhjr1018/UniConnect-Frontend" target="_blank" rel="noopener">Frontend ↗</a><a href="https://github.com/himhjr1018/UniConnect-backend" target="_blank" rel="noopener">Backend ↗</a></div></div></article>
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/edgenius.svg" alt="EdGeniuSite learning portal" loading="lazy"></div><div class="body"><span class="tag">Web App</span><h3>EdGeniuSite Learning Portal</h3><p>A learning portal web application.</p><div class="go"><a href="https://github.com/himhjr1018/EdGeniuSite" target="_blank" rel="noopener">View code ↗</a></div></div></article>
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/carsite.png" alt="Carsite listing project" loading="lazy"></div><div class="body"><span class="tag">Web App</span><h3>Carsite Listing</h3><p>A car listing web application.</p><div class="go"><a href="https://github.com/himhjr1018" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+      <article class="card proj reveal"><div class="shot"><img src="assets/img/freelancelot.jpeg" alt="FreeLanceLot" loading="lazy"></div><div class="body"><span class="tag">Web App</span><h3>FreeLanceLot</h3><p>A freelance marketplace web application.</p><div class="go"><a href="https://github.com/himhjr1018/FreeLanceLot" target="_blank" rel="noopener">View code ↗</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- READING -->
+<section id="reading">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">05 / Reading list</div>
+      <h2>Worth your time.</h2>
+      <p class="sub">A hand-picked list of articles on data quality, machine learning, AI and analytics.</p>
+    </div>
+    <div class="reads">
+      <a class="card read reveal" href="https://trackingplan.com/blog/data-quality-best-practices" target="_blank" rel="noopener"><span class="tag">Data Quality</span><h3>Data quality best practices: 7 Essentials for Reliable Analytics</h3><p>Schema checks, a shared tracking plan, clear data ownership and real-time alerting.</p><div class="src"><span>Trackingplan</span><span>↗</span></div></a>
+      <a class="card read reveal" href="https://developers.google.com/machine-learning/guides/rules-of-ml/" target="_blank" rel="noopener"><span class="tag">Machine Learning</span><h3>Rules of Machine Learning: Best Practices for ML Engineering</h3><p>Google’s practical guide to shipping ML: solid infrastructure and a simple baseline first.</p><div class="src"><span>Martin Zinkevich, Google</span><span>↗</span></div></a>
+      <a class="card read reveal" href="https://huyenchip.com/2022/02/07/data-distribution-shifts-and-monitoring.html" target="_blank" rel="noopener"><span class="tag">MLOps</span><h3>Data Distribution Shifts and Monitoring</h3><p>Why models degrade after deployment, and how to detect shifts in production.</p><div class="src"><span>Chip Huyen</span><span>↗</span></div></a>
+      <a class="card read reveal" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener"><span class="tag">Generative AI</span><h3>Building Effective Agents</h3><p>Simple, composable patterns for LLM agents, plus guidance on tool design.</p><div class="src"><span>Anthropic</span><span>↗</span></div></a>
+      <a class="card read reveal" href="https://playfairdata.com/practical-tableau-10-data-visualization-tips-i-learned-from-google-analytics/" target="_blank" rel="noopener"><span class="tag">Visualization</span><h3>10 Data Visualization Tips I Learned from Google Analytics</h3><p>Ten dashboard habits that make Tableau work easier to read and more useful.</p><div class="src"><span>Ryan Sleeper, Playfair Data</span><span>↗</span></div></a>
+      <a class="card read reveal" href="https://pandas.pydata.org/docs/user_guide/10min.html" target="_blank" rel="noopener"><span class="tag">Python</span><h3>10 Minutes to pandas</h3><p>A fast tour of Series and DataFrames: selecting, cleaning, grouping and reshaping.</p><div class="src"><span>pandas documentation</span><span>↗</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">06 / Contact</div>
+      <h2>Let’s build something<br>trustworthy.</h2>
+    </div>
+    <div class="contact">
+      <div class="card cinfo reveal">
+        <h3>Open to data, analytics and AI roles.</h3>
+        <div class="crow"><i>✉</i><div><small>Email</small><a href="mailto:himanshurao8999@gmail.com">himanshurao8999@gmail.com</a></div></div>
+        <div class="crow"><i>☏</i><div><small>Phone</small>+1 (437) 988-9899</div></div>
+        <div class="crow"><i>⌖</i><div><small>Location</small>Toronto, ON, Canada</div></div>
+        <div class="crow"><i>↗</i><div><small>Profiles</small><a href="https://www.linkedin.com/in/himanshu-rao-/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/himhjr1018" target="_blank" rel="noopener">GitHub</a></div></div>
+      </div>
+
+      <form class="card reveal" id="form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d1bfb1db-8718-46e3-90d8-def3d3408480">
+        <input type="hidden" name="from_name" value="Portfolio Website">
+        <div class="two">
+          <div><label for="n">Name</label><input id="n" name="name" required></div>
+          <div><label for="e">Email</label><input id="e" type="email" name="email" required></div>
+        </div>
+        <div><label for="s">Subject</label><input id="s" name="subject" required></div>
+        <div><label for="m">Message</label><textarea id="m" name="message" required></textarea></div>
+        <div id="fstatus" role="status"></div>
+        <button class="btn primary" type="submit" style="justify-self:start">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Himanshu Rao · Built with care in Toronto · <a href="#top">Back to top ↑</a></div>
+</footer>
+
+<button class="top" id="topbtn" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+
+  /* orbiting skill chips */
+  const orbitSkills = ['Python','SQL','PySpark','Dataiku','Tableau','AWS'];
+  const spin = $('#spin');
+  orbitSkills.forEach((t,i)=>{
+    const a = i/orbitSkills.length*360;
+    const w = document.createElement('div');
+    w.style.cssText = 'position:absolute;inset:0;transform:rotate('+a+'deg)';
+    w.innerHTML = '<div style="position:absolute;left:50%;top:0;width:0;height:0"><span class="chip" style="margin:-20px 0 0 -46px;transform:rotate('+(-a)+'deg)">'+t+'</span></div>';
+    spin.appendChild(w);
+  });
+  // counter-rotate each chip against the ring so labels stay upright
+  spin.querySelectorAll('.chip').forEach(c=>{c.style.animation='none'});
+  (function keepUpright(){
+    if(reduce) return;
+    const start = performance.now();
+    const chips = [...spin.querySelectorAll('.chip')];
+    function f(now){
+      const deg = ((now-start)/32000)*360;
+      chips.forEach((c,i)=>{ const a=i/orbitSkills.length*360; c.style.transform='rotate('+(-(a+deg))+'deg)'; });
+      requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  })();
+
+  /* marquee */
+  const words = ['Data Quality','Anomaly Detection','AML Analytics','ETL Pipelines','PySpark','Dataiku','Tableau','SQL','Machine Learning','Data Validation','Python','Snowflake','Audit-ready Data'];
+  const m = words.map(w=>'<span>'+w+'</span>').join('');
+  $('#marq').innerHTML = m + m;
+
+  /* typed roles */
+  const roles = ['Data & AI Professional','Data Analyst','Data Quality & Anomaly Detection','AML Data Assessments'];
+  const el = $('#typed');
+  if(reduce){ el.textContent = roles[0]; }
+  else{
+    let r=0,c=0,del=false;
+    (function tick(){
+      const w = roles[r];
+      el.textContent = w.slice(0,c);
+      if(!del && c===w.length){ del=true; return setTimeout(tick,1600); }
+      if(del && c===0){ del=false; r=(r+1)%roles.length; }
+      c += del ? -1 : 1;
+      setTimeout(tick, del?28:62);
+    })();
+  }
+
+  /* code card */
+  const code = [
+    '<span class="k">def</span> <span class="f">assess</span>(source):',
+    '    <span class="c"># illustrative sketch of how I approach a data source</span>',
+    '    checks = [<span class="s">"completeness"</span>, <span class="s">"accuracy"</span>,',
+    '              <span class="s">"timeliness"</span>,   <span class="s">"lineage"</span>]',
+    '',
+    '    report = {c: <span class="f">run_check</span>(source, c) <span class="k">for</span> c <span class="k">in</span> checks}',
+    '    gaps   = <span class="f">detect_anomalies</span>(source)   <span class="c"># stats + ML</span>',
+    '',
+    '    <span class="k">return</span> <span class="f">rate_and_escalate</span>(report, gaps)',
+    '',
+    '<span class="f">assess</span>(<span class="s">"transaction_monitoring"</span>)',
+    '<span class="c"># → clear risk ratings, owners and actions</span>'
+  ].join('\n');
+  const pre = $('#code');
+  pre.innerHTML = code;
+
+  /* reveal + counters */
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      const n = e.target.querySelector('[data-to]');
+      if(n && !n.dataset.done){ n.dataset.done=1; count(n); }
+      io.unobserve(e.target);
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+  function count(n){
+    const to=+n.dataset.to, suf=n.dataset.suf||'';
+    if(reduce){ n.textContent=to+suf; return; }
+    const t0=performance.now(), d=1400;
+    (function f(t){
+      const p=Math.min((t-t0)/d,1), v=Math.round(to*(1-Math.pow(1-p,3)));
+      n.textContent=v+suf; if(p<1) requestAnimationFrame(f);
+    })(t0);
+  }
+
+  /* card spotlight + 3D tilt */
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      c.style.setProperty('--my',(e.clientY-r.top)+'px');
+      if(c.classList.contains('proj') && !reduce){
+        const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) translateY(-4px)';
+      }
+    });
+    c.addEventListener('pointerleave',()=>{ if(c.classList.contains('proj')) c.style.transform=''; });
+  });
+
+  /* cursor glow */
+  const glow=$('#glow');
+  if(matchMedia('(hover:none)').matches) glow.style.display='none';
+  addEventListener('pointermove',e=>{ glow.style.transform='translate('+(e.clientX-210)+'px,'+(e.clientY-210)+'px)'; },{passive:true});
+
+  /* nav state */
+  const links=[...document.querySelectorAll('.links a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const topbtn=$('#topbtn');
+  function spy(){
+    const y=scrollY+window.innerHeight*.35;
+    let cur=-1; secs.forEach((s,i)=>{ if(s.getBoundingClientRect().top+scrollY<=y) cur=i; });
+    links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+    topbtn.classList.toggle('show',scrollY>700);
+  }
+  addEventListener('scroll',spy,{passive:true}); spy();
+  topbtn.onclick=()=>scrollTo({top:0});
+  $('#burger').onclick=()=>$('#links').classList.toggle('open');
+  links.forEach(a=>a.addEventListener('click',()=>$('#links').classList.remove('open')));
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* contact form (Web3Forms) */
+  $('#form').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const f=e.target, s=$('#fstatus'); s.style.color='var(--muted)'; s.textContent='Sending…';
+    try{
+      const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});
+      const j=await r.json();
+      if(j.success){ s.style.color='var(--lime)'; s.textContent='Message sent. Thank you!'; f.reset(); }
+      else throw new Error(j.message||'Failed');
+    }catch(err){ s.style.color='var(--pink)'; s.textContent='Could not send. Please email me directly.'; }
+  });
+
+  /* neural-network canvas */
+  const cv=$('#net'), ctx=cv.getContext('2d');
+  let W,H,pts=[],mouse={x:-999,y:-999};
+  function size(){
+    const d=Math.min(devicePixelRatio||1,2);
+    W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(d,0,0,d,0,0);
+    const n=Math.round(Math.min(110,W*H/16000));
+    pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}));
+  }
+  size(); addEventListener('resize',size);
+  addEventListener('pointermove',e=>{mouse.x=e.clientX;mouse.y=e.clientY},{passive:true});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+      const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+      if(d<140){p.x+=dx/d*.9;p.y+=dy/d*.9}
+    }
+    for(let i=0;i<pts.length;i++){
+      const a=pts[i];
+      ctx.fillStyle='rgba(120,200,255,.65)';ctx.beginPath();ctx.arc(a.x,a.y,1.4,0,6.283);ctx.fill();
+      for(let j=i+1;j<pts.length;j++){
+        const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<135){ctx.strokeStyle='rgba(139,92,246,'+(.28*(1-d/135))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+      }
+      const md=Math.hypot(a.x-mouse.x,a.y-mouse.y);
+      if(md<170){ctx.strokeStyle='rgba(34,211,238,'+(.5*(1-md/170))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke()}
+    }
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
